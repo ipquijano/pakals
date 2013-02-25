@@ -1,0 +1,30 @@
+<div id="page">
+	<div id="content">
+		<div class="post">
+			<h2 class="title"><%= link_to "Users", admin_viewAllUsers_path %></h2>
+			<div class="entry">
+				<% @users.each do |user| %>
+				<h3><%= link_to user.name, user %></h3>
+				<p>
+				<% if(user.usertype != "1" ) %>
+					<%= link_to("Promote", admin_user_promote_path(user), :confirm => "Are you sure?", :method => :post)%> |
+				<% elsif(user.usertype == "1") %>
+					<%= link_to("Demote", admin_user_demote_path(user), :confirm => "Are you sure?", :method => :post)%> |
+				<% end %>
+				<% if(user.reputation != 1)%>
+					<%= link_to("Ban", admin_user_ban_path(user), :confirm => "Are you sure?", :method => :post)%>
+				<% elsif(user.reputation == 1) %>
+					<%= link_to("Unban", admin_user_unban_path(user), :confirm => "Are you sure?", :method => :post)%>
+				<% end %>
+				</p>
+				<hr />
+
+			<% end %>
+
+			</div>
+		</div>
+	</div>
+	<!-- end #content -->
+
+</div>
+

@@ -1,0 +1,45 @@
+<div id="page">
+	<div id="content">
+		<div class="post">
+			<h2 class="title"><%= @post.title %></h2>
+			<div class="entry">
+				<p>TOWN/CITY: <%= @post.town_from %></p>
+				<p><%= @post.body %></p>
+				<small><strong>Date Published:</strong> <%= @post.created_at %></small> <br>
+				<small><strong>Last Modified: </strong><%= @post.updated_at %></small> <br>
+				
+			</div>
+
+			<h3>COMMENTS</h3>
+
+			<% @post.comments.each do |c| %>
+			  <p>			    
+			    <% user = User.find(c.user_id) %>
+			    <b><%=user.name %> said:</b><br />
+			    <b><%=c.comment %></b><br />
+			    <%= time_ago_in_words(c.created_at) %> ago
+			  </p>
+
+			  
+			<% end %>
+			<% if current_user %>
+			<%= form_for([@post, @comment]) do |f| %>
+			  <p>
+			  	<%= f.hidden_field :user_id, :value => current_user.id %>
+			    <%= f.label :comment %><br />
+			    <%= f.text_area :comment %>
+			  </p>
+			  <p>
+			    <%= f.submit "Add Comment" %>
+			  </p>
+			<% end %>
+			<% end %>
+
+			<div class = "more2">
+				<%= link_to "Back", posts_path %>
+			</div>
+		</div>
+	</div>
+	<!-- end #content -->
+	
+</div>

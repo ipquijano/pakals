@@ -1,0 +1,93 @@
+<div id="page">
+	<div id="content">
+		<div class="post">
+			<h2 class="title"><a href="#">Update Post</a></h2>
+			<div class="entry">
+				<%= form_for @post do |f| %>
+				<% if @post.errors.any? %>
+					<h2>Errors</h2>
+					<ul>
+						<% @post.errors.full_messages.each do |message| %>
+							<li><%= message %> </li>
+						<% end %>
+					</ul>
+				<% end %>
+				<p>
+					<%= f.label :title %><br />
+					<%= f.text_field :title %>
+				</p>
+				<p>
+					<%= f.label :body %><br />
+					<%= f.text_area :body %>
+				</p>
+				<p>
+					<%= f.label "Town/City:" %>
+					<%= f.select :town_from, 
+					[
+						['', ''],
+						['Alcantara', 'Alcantara'],
+						['Alcoy', 'Alcoy'],
+						['Alegria', 'Alegria'],
+						['Aloguinsan', 'Aloguinsan'],
+						['Argao', 'Argao'],
+						['Asturias', 'Asturias'],
+						['Badian', 'Badian'],
+						['Balamban', 'Balamban'],
+						['Bantayan', 'Bantayan'],
+						['Barili', 'Barili'],
+						['Bogo', 'Bogo'],
+						['Boljoon', 'Boljoon'],
+						['Borbon', 'Borbon'],
+						['Carcar', 'Carcar'],					 
+						['Carmen', 'Carmen'],
+						['Catmon', 'Catmon'],
+						['Cebu City', 'Cebu City'],
+						['Compostela', 'Compostela'],
+						['Consolacion', 'Consolacion'],
+						['Cordova', 'Cordova'],
+						['Daanbantayan', 'Daanbantayan'],
+						['Dalaguete', 'Dalaguete'],
+						['Danao City', 'Danao City'],
+						['Dumanjug', 'Dumanjug'],
+						['Ginatilan', 'Ginatilan'],
+						['Lapu-Lapu City', 'Lapu-Lapu City'],
+						['Liloan', 'Liloan'],
+						['Madridejos', 'Madridejos'],
+						['Malabuyoc', 'Malabuyoc'],
+						['Mandaue City', 'Mandaue City'],
+						['Medellin', 'Medellin'],
+						['Minglanilla', 'Minglanilla'],
+						['Moalboal', 'Moalboal'],
+						['Naga', 'Naga'],
+						['Oslob', 'Oslob'],
+						['Pilar', 'Oslob'],
+						['Pinamungahan', 'Pinamungahan'],
+						['Poro', 'Poro'],
+						['Ronda', 'Ronda'],
+						['Samboan', 'Samboan'],
+						['San Fernando', 'San Fernando'],
+						['San Francisco', 'San Francisco'],
+						['San Remigio', 'San Remigio'],
+						['Santa Fe', 'Santa Fe'],
+						['Santander', 'Santander'],
+						['Sibonga', 'Sibonga'],
+						['Sogod', 'Sogod'],
+						['Tabogon', 'Tabogon'],
+						['Tabuelan', 'Tabuelan'],
+						['Talisay City', 'Talisay City'],
+						['Toledo City', 'Toledo City'],
+						['Tuburan', 'Tuburan'],
+						['Tudela', 'Tudela'],
+					]
+
+						%>				</p>
+				<p>
+					<%= f.submit "Update Post"%>
+				</p>
+			<% end %>
+			</div>
+		</div>
+	</div>
+	<!-- end #content -->
+	
+</div>

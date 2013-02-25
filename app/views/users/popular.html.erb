@@ -1,0 +1,23 @@
+	<div id="page">
+		<div id="content">
+			<div class="post">
+				<h2 class="title"><a href="#">Welcome to PAKALS </a></h2>
+				<div class="entry">
+					<p>This is <strong>PAKALS</strong>, is a crowdsourced food blog. Let's all become sugbuanong food bloggers and spread our cebuano heritage through food! :) Share with us your cebuano experience. Sign in or Register now!
+					<p class="links"><a href="#" class="more">Read More</a><a href="#" title="b0x" class="comments">Comments</a></p>
+				</div>
+
+				<div class="entry">
+				<br/><br/>
+				<% @posts.each do |post| %>
+				<h3><%= link_to post.title, post%></h3>
+				
+				<p><%=h truncate(post.body, :length => 80) %></p>
+				
+				<hr />
+
+			<% end %>
+			</div>
+		</div>
+		<!-- end #content -->
+	</div>

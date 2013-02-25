@@ -1,0 +1,21 @@
+<h1><%= @post.title %></h1>
+<p>TOWN/CITY: <%= @post.town %></p>
+<p><%= @post.body %></p>
+<small><strong>Date Published:</strong> <%= @post.created_at %></small>
+<small><strong>Last Modified: </strong><%= @post.updated_at %></small>
+
+	<div id="page">
+		<div id="content">
+			<div class="post">
+				<h2 class="title"><%= @post.title %></h2>
+				<div class="entry">
+					<p>TOWN/CITY: <%= @post.town %></p>
+					<p><%= @post.body %></p>
+					<small><strong>Date Published:</strong> <%= @post.created_at %></small>
+					<small><strong>Last Modified: </strong><%= @post.updated_at %></small>
+				</div>
+			</div>
+		</div>
+		<!-- end #content -->
+	
+	</div>

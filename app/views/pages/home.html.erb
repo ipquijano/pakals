@@ -1,0 +1,20 @@
+
+
+	<div id="page">
+		<div id="content">
+			<div class="post">
+				<h2 class="title"><a href="#">Welcome to PAKALS </a></h2>
+				<div class="entry">
+					<% @posts.each do |post| %>
+				<h3><%= link_to post.title, post%></h3>
+				
+				<p><%=h truncate(post.body, :length => 80) %></p>
+				
+				<hr />
+
+			<% end %>
+				</div>
+			</div>
+		</div>
+		<!-- end #content -->
+	</div>

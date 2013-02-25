@@ -1,0 +1,19 @@
+<div id="page">
+	<div id="content">
+		<div class="post">
+			<h2 class="title"><%= link_to "Users", users_path %></h2>
+			<div class="entry">
+				<% @users.each do |user| %>
+				<h2><%= link_to user.name, user%></h2>
+				<p><%= link_to "Edit", edit_user_path(user)  %> |
+				<%= link_to "Delete", user, :confirm => "Are you sure?", :method => :delete %></p>
+				<hr />
+
+			<% end %>
+
+			</div>
+		</div>
+	</div>
+	<!-- end #content -->
+
+</div>

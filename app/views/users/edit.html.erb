@@ -1,0 +1,41 @@
+<div id="page">
+	<div id="content">
+		<div class="post">
+			<h2 class="title"><a href="#">Update Profile</a></h2>
+			<div class="entry">
+				<%= form_for @user do |f| %>
+				<% if @user.errors.any? %>
+					<h2>Errors</h2>
+					<ul>
+						<% @user.errors.full_messages.each do |message| %>
+							<li><%= message %> </li>
+						<% end %>
+					</ul>
+				<% end %>
+				<p>
+					<%= f.label :name %><br />
+					<%= f.text_field :name %>
+				</p>
+				<p>
+					<%= f.label :address %><br />
+					<%= f.text_field :address %>
+				</p>
+				<p>
+					<%= f.label :contact_num %><br />
+					<%= f.text_field :contact_num %>
+				</p>
+
+				<p>
+					<%= f.label :birthdate %><br />
+					<%= f.text_field :birthdate %>
+				</p>
+				<p>
+					<%= f.submit "Update Profile"%>
+				</p>
+			<% end %>
+			</div>
+		</div>
+	</div>
+	<!-- end #content -->
+	
+</div>

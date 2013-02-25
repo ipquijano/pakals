@@ -1,0 +1,50 @@
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>PAKALS :: The taste of Cebu</title>
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Abel|Satisfy' rel='stylesheet' type='text/css'>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header" class="container">
+			<div id="logo">
+				<% if current_user %>
+					<h1><%= link_to "PAKALS", posts_path %></h1>
+				<% else %>
+					<h1><%= link_to "PAKALS", log_in_path %></h1>
+				<% end %>
+				<p>The taste of Cebu</p>
+
+			</div>
+			
+			<div id="search">
+				<form method="get" action="/search" id="search">
+					<input name="q" type="text" placeholder="Search..." />
+				</form>
+			</div>
+
+			<div id="menu">
+				<ul>
+					<li class="current_page_item"><%= link_to "Home", pages_home_path %></li>
+					<li><%= link_to "Popular", pages_popular_path %></li>
+					<li><%= link_to "Latest", pages_latest_path %></li>
+					<li><%= link_to "Towns", pages_towns_path %></li>
+					
+						<% if current_user %>
+							<li><%= link_to "Log out", log_out_path %></li>
+						<% else %>
+							<li><%= link_to "Register", register_path %></li>	
+							<li><%= link_to "Log in", log_in_path %></li>
+						<% end %>
+				</ul>
+			</div>
+		</div>
+
+		
+	</div>
+</div>	
+	<!-- end #header -->

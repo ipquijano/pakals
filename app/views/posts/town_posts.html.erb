@@ -1,0 +1,23 @@
+
+<div id="page">
+	<div id="content">
+		<div class="post">
+			<h2 class="title">Delicacies by Town</h2>
+			<div class="entry">
+				<h3><%= params[:town_from] %><h3> <br />
+				<% if @posts%>	
+					<% @posts.each do |post| %>
+					    <h3><%= link_to post.title, post%></h3>
+					
+					    <p><%=h truncate(post.body, :length => 80) %></p>
+						 
+						 <hr />
+
+				    <% end %>
+			    <% else %>
+			    	<h3>NO RESULTS FOUND</h3>
+		    	<% end %> 
+			</div>
+		</div>
+	</div>	
+</div>

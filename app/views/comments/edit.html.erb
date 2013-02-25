@@ -1,0 +1,22 @@
+<div id="page">
+  <div id="content">
+    <div class="post">
+      <h2 class="title"><a href="#">Edit Comment</a></h2>
+      <div class="entry">
+
+        <%= form_for([:post, @comment]) do |f| %>
+          <p>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.label :comment %><br />
+          <%= f.text_area :comment %>
+          </p>
+          <p>
+            <%= f.submit "Edit Comment" %>
+          </p>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+  <!-- end #content -->
+</div>
