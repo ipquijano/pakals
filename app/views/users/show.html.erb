@@ -3,8 +3,7 @@
 		<div id="content">
 			<div class="user">
 				<div class="entry">
-					<%= image_tag @user.avatar.url(), :height=>200, :width=>200, :style => "border: 1px solid black" %>
-					<%#= @user.avatar.url() %>
+					<%= image_tag @user.avatar.url, :height=>200, :width=>200, :style => "border: 1px solid black" %>
 					<p><strong>Name:</strong> <%= @user.name %></p>
 					<p><strong>Email:</strong> <%= @user.email %></p>
 					<p><strong>Contact Number:</strong> <%= @user.contact_num %></p>

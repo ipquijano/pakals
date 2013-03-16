@@ -3,6 +3,7 @@
 		<div class="post">
 			
 				<h2 class="title"><%= @post.title %></h2>
+				<p>by: <%= @post.user.name%></p>
 				<div class="entry">
 					<p>TOWN/CITY: <%= @post.town_from %></p>
 
@@ -19,20 +20,19 @@
 								%Q{<iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
 						end
 					%>
-					<!--http://www.youtube.com/watch?v=2Fz3zFqLc3E-->
-					<% if @post.videolink %>
+					<% if @post.videolink != nil and @post.videolink != "" %>
 						<p><%= raw(youtube_embed(@post.videolink)) %></p>
 					<% end %>
 				<p><%= @post.body %></p>
+				<p><%= image_tag @post.foodpic.url, :height=>200, :width=>200, :style => "border: 1px solid black" %></p>
 
-					<p><%= @post.body %></p>
 					<small><strong>Date Published:</strong> <%= @post.created_at %></small> <br>
 					<small><strong>Last Modified: </strong><%= @post.updated_at %></small> <br> <br>	
 					<small>
-						<% #if current_user %>					
-							<%#= toggle_like(@post, current_user) %>	 |
-							<%#= toggle_spam(@post, current_user) %>					
-						<% #end %>
+						<% if current_user %>					
+							<%= toggle_like(@post, current_user) %>	 |
+							<%= toggle_spam(@post, current_user) %>					
+						<% end %>
 					</small>
 				</div>
 
@@ -40,8 +40,7 @@
 				<br>
 				<% @post.comments.each do |c| %>
 				  <p>			    
-				    <%# user = User.find(c.user_id) %>
-				    <b><%#= user.name %> <%= c.user.name %> said:</b><br />
+				    <b><%= c.user.name %> said:</b><br />
 				    <b><%= c.comment %></b><br />
 				    <%= time_ago_in_words(c.created_at) %> ago <br>
 				  </p>	  

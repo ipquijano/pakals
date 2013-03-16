@@ -1,11 +1,9 @@
 class Post < ActiveRecord::Base
-  # make_flaggable :spam, :like
-  attr_accessible :body, :spam_status, :tag, :title, :town_from, :user_id, :reputation, :videolink
+  make_flaggable :spam, :like
+  attr_accessible :body, :spam_status, :tag, :title, :town_from, :user_id, :reputation, :videolink, :foodpic
   belongs_to :user
   has_many :comments, :dependent => :destroy
-  #has_many :spam_posts, :dependent => :destroy
-  #has_many :user, :through => :spam_posts
-
+  has_attached_file :foodpic
 
 
   validates :title, :body, :town_from, :presence => true

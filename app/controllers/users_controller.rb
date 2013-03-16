@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 
 		if @user.save
-			redirect_to posts_path
+			redirect_to log_in_path
 		else
 			render "new"
 		 end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 
 		if @user.update_attributes(params[:user])
-			redirect_to posts_path
+			redirect_to user_path
 		else
 			render "edit"
 		end  

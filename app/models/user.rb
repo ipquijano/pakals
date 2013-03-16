@@ -1,18 +1,12 @@
 class User < ActiveRecord::Base
-  # make_flagger
-  attr_accessible :address, :birthdate, :contact_num, :email, :name, :reputation, :tag, :usertype, :password, :password_confirmation
+  make_flagger
+  attr_accessible :address, :birthdate, :contact_num, :email, :name, :reputation, :tag, :usertype, :password, :password_confirmation, :avatar
   attr_accessor :password
   before_save :encrypt_password
   has_many :posts
   has_many :comments
-  #has_many :spam_posts
-  
-  #added
-  attr_accessible :avatar
-  has_attached_file :avatar#, :styles => { :medium => "300x300>", :thumb => "100x100>" }#, :default_url => "/images/:style/missing.png"
-  #added
 
-
+  has_attached_file :avatar
 
   validates_confirmation_of :password, :on => :create
   validates_presence_of :password, :on => :create

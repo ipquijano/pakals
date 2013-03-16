@@ -40,6 +40,7 @@
 					<br />
 					<%#= image_tag "/system/users/avatars/avatar.jpg",:source=>"/system/users/avatars/avatar.jpg", :class=>"image_prev", :height=>300, :width=>300, :style => "border: 1px solid black", :alt=>"your image" %>
 					<br/>
+					
 					<%= f.file_field :avatar, :onchange=>"readURL(this);", :name => "image", :required => "true", :accept => "image/gif, image/png, image/jpeg" %>
 				</p>
 				<p>
