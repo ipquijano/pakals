@@ -19,4 +19,8 @@ class PagesController < ApplicationController
 	def towns
 		
 	end
+
+	def top_posts
+		@posts = Post.all
+	end
 end

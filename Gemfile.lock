@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/cavneb/make_flaggable.git
+  revision: 1b09b3bb8a778b5a8f7250c587d59a8e6c205be6
+  specs:
+    make_flaggable (0.1.0)
+      activerecord (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,34 +38,41 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
+    cocaine (0.3.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.4.0)
+    coffee-script-source (1.6.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
     hike (1.2.1)
-    i18n (0.6.1)
+    i18n (0.6.4)
     journey (1.0.4)
-    jquery-rails (2.2.0)
+    jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    json (1.7.6)
+    json (1.7.7)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.19)
-    multi_json (1.5.0)
+    mime-types (1.21)
+    multi_json (1.6.1)
+    paperclip (3.1.4)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
     polyglot (0.3.3)
-    rack (1.4.4)
+    rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-ssl (1.3.2)
+    rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -78,9 +92,9 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (10.0.3)
-    rdoc (3.12)
+    rdoc (3.12.2)
       json (~> 1.4)
-    sass (3.2.5)
+    sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -93,11 +107,11 @@ GEM
     sqlite3-ruby (1.3.3)
       sqlite3 (>= 1.3.3)
     thor (0.14.6)
-    tilt (1.3.3)
+    tilt (1.3.5)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.35)
+    tzinfo (0.3.37)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
@@ -107,8 +121,11 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby
+  cocaine (= 0.3.2)
   coffee-rails (~> 3.2.1)
   jquery-rails
+  make_flaggable!
+  paperclip (= 3.1.4)
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)
   sqlite3-ruby

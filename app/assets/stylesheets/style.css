@@ -131,13 +131,13 @@ a:hover {
 
 #search {
 	float: right;
-	width: 280px;
-	height: 60px;
-	padding: 20px 0px 0px 0px;
+	width: 200px;
+	height: 5px;
+	padding: 23px 0px 10px 0px;
 }
 
 #search form {
-	height: 41px;
+	height: 5px;
 	margin: 0;
 	padding: 10px 0 0 20px;
 }
@@ -173,7 +173,7 @@ a:hover {
 	width: 500px;
 	height: 250px;
 	margin: 0 auto;
-	padding: 0;
+	padding: 20px 0px 0px 0px;
 }
 
 #menu ul {

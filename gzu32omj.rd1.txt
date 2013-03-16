@@ -1,0 +1,59 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   Gemfile
+#	modified:   Gemfile.lock
+#	modified:   app/assets/stylesheets/style.css
+#	modified:   app/controllers/admin_controller.rb
+#	modified:   app/controllers/comments_controller.rb
+#	modified:   app/controllers/pages_controller.rb
+#	modified:   app/controllers/posts_controller.rb
+#	modified:   app/controllers/sessions_controller.rb
+#	modified:   app/controllers/users_controller.rb
+#	modified:   app/helpers/application_helper.rb
+#	modified:   app/helpers/comments_helper.rb
+#	modified:   app/helpers/posts_helper.rb
+#	modified:   app/models/comment.rb
+#	modified:   app/models/like.rb
+#	modified:   app/models/post.rb
+#	modified:   app/models/user.rb
+#	modified:   app/views/admin/spamReports.html.erb
+#	modified:   app/views/admin/viewAllUsers.html.erb
+#	modified:   app/views/comments/edit.html.erb
+#	modified:   app/views/layouts/application.html.erb
+#	modified:   app/views/pages/home.html.erb
+#	modified:   app/views/posts/index.html.erb
+#	modified:   app/views/posts/new.html.erb
+#	modified:   app/views/posts/show.html.erb
+#	modified:   app/views/shared/_footer.html.erb
+#	modified:   app/views/shared/_header.html.erb
+#	modified:   app/views/users/show.html.erb
+#	modified:   config/routes.rb
+#	modified:   db/schema.rb
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	app/assets/javascripts/spam_posts.js.coffee
+#	app/assets/stylesheets/scaffolds.css.scss
+#	app/assets/stylesheets/spam_posts.css.scss
+#	app/helpers/spam_posts_helper.rb
+#	app/views/admin/showPostsReporters.html.erb
+#	app/views/comments/_form.html.erb
+#	app/views/comments/index.html.erb
+#	app/views/comments/new.html.erb
+#	app/views/comments/show.html.erb
+#	app/views/posts/_top_posts.html.erb
+#	app/views/spam_posts/
+#	db/migrate/20130304082559_create_make_flaggable_tables.rb
+#	sqlite3-ruby/ruby/1.9.1/bundler/
+#	sqlite3-ruby/ruby/1.9.1/cache/bundler/
+#	test/fixtures/spam_posts.yml
+#	test/functional/spam_posts_controller_test.rb
+#	test/unit/helpers/spam_posts_helper_test.rb
+#	test/unit/spam_post_test.rb
+

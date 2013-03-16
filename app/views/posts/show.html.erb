@@ -1,45 +1,70 @@
 <div id="page">
 	<div id="content">
 		<div class="post">
-			<h2 class="title"><%= @post.title %></h2>
-			<div class="entry">
-				<p>TOWN/CITY: <%= @post.town_from %></p>
+			
+				<h2 class="title"><%= @post.title %></h2>
+				<div class="entry">
+					<p>TOWN/CITY: <%= @post.town_from %></p>
+
+					<%
+						def youtube_embed(youtube_url)
+								if youtube_url[/youtu\.be\/([^\?]*)/]
+								youtube_id = $1
+								else
+							    # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
+							    youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+							    youtube_id = $5
+							end
+
+								%Q{<iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
+						end
+					%>
+					<!--http://www.youtube.com/watch?v=2Fz3zFqLc3E-->
+					<% if @post.videolink %>
+						<p><%= raw(youtube_embed(@post.videolink)) %></p>
+					<% end %>
 				<p><%= @post.body %></p>
-				<small><strong>Date Published:</strong> <%= @post.created_at %></small> <br>
-				<small><strong>Last Modified: </strong><%= @post.updated_at %></small> <br>
-				
-			</div>
 
-			<h3>COMMENTS</h3>
+					<p><%= @post.body %></p>
+					<small><strong>Date Published:</strong> <%= @post.created_at %></small> <br>
+					<small><strong>Last Modified: </strong><%= @post.updated_at %></small> <br> <br>	
+					<small>
+						<% #if current_user %>					
+							<%#= toggle_like(@post, current_user) %>	 |
+							<%#= toggle_spam(@post, current_user) %>					
+						<% #end %>
+					</small>
+				</div>
 
-			<% @post.comments.each do |c| %>
-			  <p>			    
-			    <% user = User.find(c.user_id) %>
-			    <b><%=user.name %> said:</b><br />
-			    <b><%=c.comment %></b><br />
-			    <%= time_ago_in_words(c.created_at) %> ago
-			  </p>
+				<h3>COMMENTS</h3>
+				<br>
+				<% @post.comments.each do |c| %>
+				  <p>			    
+				    <%# user = User.find(c.user_id) %>
+				    <b><%#= user.name %> <%= c.user.name %> said:</b><br />
+				    <b><%= c.comment %></b><br />
+				    <%= time_ago_in_words(c.created_at) %> ago <br>
+				  </p>	  
+				<% end %>
 
-			  
-			<% end %>
-			<% if current_user %>
-			<%= form_for([@post, @comment]) do |f| %>
-			  <p>
-			  	<%= f.hidden_field :user_id, :value => current_user.id %>
-			    <%= f.label :comment %><br />
-			    <%= f.text_area :comment %>
-			  </p>
-			  <p>
-			    <%= f.submit "Add Comment" %>
-			  </p>
-			<% end %>
-			<% end %>
-
-			<div class = "more2">
-				<%= link_to "Back", posts_path %>
-			</div>
+				<% if current_user %>
+					<%= form_for([@post, @comment]) do |f| %>
+					  <p>
+					  	<%= f.hidden_field :user_id, :value => current_user.id %>
+					    <%= f.label :comment %><br />
+					    <%= f.text_area :comment %>
+					  </p>
+					  <p>
+					    <%= f.submit "Add Comment" %>
+					  </p>
+					<% end %>
+				<% end %>
+				<div class = "more2">
+					<%= link_to "Back", posts_path %>
+				</div>
+		
+			
 		</div>
 	</div>
-	<!-- end #content -->
-	
+	<!-- end #content -->	
 </div>

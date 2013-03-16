@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 			render "new"
 	  	else
 			session[:user_id] = user.id
-			redirect_to posts_path, :notice => "Welcome " + user.name + "!"
+			redirect_to pages_home_path, :notice => "Welcome " + user.name + "!"
 		end
 	else
 		flash.now.alert = "Invalid email or password"

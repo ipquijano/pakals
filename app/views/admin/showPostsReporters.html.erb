@@ -1,0 +1,19 @@
+<div id="page">
+	<div id="content">
+		<div class="post">
+			<h2 class="title"><%= link_to "Users", users_path %></h2>
+			<div class="entry">
+				<br>	
+				<% @flaggings.each do |flagging| %>					
+					<% user = flagging.flagger %>
+					<p><%= link_to user.name, user %></p>
+				<% end %>
+			</div>
+				
+
+			</div>
+		</div>
+	</div>
+	<!-- end #content -->
+
+</div>

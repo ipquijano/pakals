@@ -1,18 +1,17 @@
-<h1><%= @post.title %></h1>
-<p>TOWN/CITY: <%= @post.town %></p>
-<p><%= @post.body %></p>
-<small><strong>Date Published:</strong> <%= @post.created_at %></small>
-<small><strong>Last Modified: </strong><%= @post.updated_at %></small>
 
 	<div id="page">
 		<div id="content">
-			<div class="post">
-				<h2 class="title"><%= @post.title %></h2>
+			<div class="user">
 				<div class="entry">
-					<p>TOWN/CITY: <%= @post.town %></p>
-					<p><%= @post.body %></p>
-					<small><strong>Date Published:</strong> <%= @post.created_at %></small>
-					<small><strong>Last Modified: </strong><%= @post.updated_at %></small>
+					<%= image_tag @user.avatar.url(), :height=>200, :width=>200, :style => "border: 1px solid black" %>
+					<%#= @user.avatar.url() %>
+					<p><strong>Name:</strong> <%= @user.name %></p>
+					<p><strong>Email:</strong> <%= @user.email %></p>
+					<p><strong>Contact Number:</strong> <%= @user.contact_num %></p>
+					<p><strong>Birthdate:</strong> <%= @user.birthdate %></p>
+					<p><strong>Address:</strong> <%= @user.address%></p>
+					<p><strong>Reputation:</strong> <%= @user.reputation %></p>
+					<p><strong>User Type:</strong> <%= @user.usertype %></p>
 				</div>
 			</div>
 		</div>

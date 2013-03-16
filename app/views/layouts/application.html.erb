@@ -43,7 +43,7 @@
 						<% if current_user.usertype == "1" %>
 							<strong><li>Admin Tools</li></strong>
 							<ul>
-								<li><%= link_to "View Spam Reports" %></li>
+								<li><%= link_to "View Spam Reports", admin_spamReports_path %></li>
 								<li><%= link_to "View Spam Comments" %></li>
 								<li><%= link_to "View All Users", admin_viewAllUsers_path %></li>
 							</ul>	

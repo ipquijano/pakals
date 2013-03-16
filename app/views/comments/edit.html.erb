@@ -6,7 +6,11 @@
 
         <%= form_for([:post, @comment]) do |f| %>
           <p>
+          <% if current_user %>
           <%= f.hidden_field :user_id, :value => current_user.id %>
+          <% else %>
+            <%= redirect_to log_in_path %>
+          <% end %>
           <%= f.label :comment %><br />
           <%= f.text_area :comment %>
           </p>

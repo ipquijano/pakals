@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205203724) do
+ActiveRecord::Schema.define(:version => 20130313104533) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(:version => 20130205203724) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "flaggings", :force => true do |t|
+    t.string   "flaggable_type"
+    t.integer  "flaggable_id"
+    t.string   "flagger_type"
+    t.integer  "flagger_id"
+    t.string   "flag"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "flaggings", ["flag", "flaggable_type", "flaggable_id"], :name => "index_flaggings_on_flag_and_flaggable_type_and_flaggable_id"
+  add_index "flaggings", ["flag", "flagger_type", "flagger_id", "flaggable_type", "flaggable_id"], :name => "access_flag_flaggings"
+  add_index "flaggings", ["flaggable_type", "flaggable_id"], :name => "index_flaggings_on_flaggable_type_and_flaggable_id"
+  add_index "flaggings", ["flagger_type", "flagger_id", "flaggable_type", "flaggable_id"], :name => "access_flaggings"
 
   create_table "likes", :force => true do |t|
     t.integer  "user_id"
@@ -37,7 +52,19 @@ ActiveRecord::Schema.define(:version => 20130205203724) do
     t.string   "tag"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "reputation"
+    t.string   "videolink"
   end
+
+  create_table "spam_posts", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "spam_posts", ["post_id"], :name => "index_spam_posts_on_post_id"
+  add_index "spam_posts", ["user_id"], :name => "index_spam_posts_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "usertype"
@@ -50,8 +77,12 @@ ActiveRecord::Schema.define(:version => 20130205203724) do
     t.string   "tag"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
 end

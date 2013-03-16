@@ -12,8 +12,7 @@
 						<% end %>
 					</ul>
 				<% end %>
-				
-				
+							
 				<p>
 					<%= f.hidden_field :user_id, :value => current_user.id %>
 					<%= f.label :title %> 
@@ -83,7 +82,11 @@
 						['Tudela', 'Tudela'],
 					]
 
-						%>
+					%>
+				</p>
+				<p>
+					<%= f.label "Video Link:" %>
+					<%= f.text_field :videolink %>
 				</p>
 				 
 				<p>

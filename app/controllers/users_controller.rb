@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 
 		if @user.save
-			redirect_to pages_home_path
+			redirect_to posts_path
 		else
 			render "new"
 		 end
@@ -32,13 +32,13 @@ class UsersController < ApplicationController
 		if @user.update_attributes(params[:user])
 			redirect_to posts_path
 		else
-				render "edit"
+			render "edit"
 		end  
 	end
 
 	def destroy
 		@user = User.find(params[:id])
 		@user.destroy
-		redirect_to post_path
+		redirect_to posts_path
 	end
 end

@@ -1,4 +1,6 @@
 Pakals::Application.routes.draw do
+  resources :spam_posts
+
   get "sessions/new"
 
   resources :posts, :has_many => :comments
@@ -19,14 +21,43 @@ Pakals::Application.routes.draw do
   match 'admin/:id/unban', :to => 'admin#unban', :as => 'admin_user_unban', :via => :post
   match 'admin/:id/promote', :to => 'admin#promote', :as => 'admin_user_promote', :via => :post
   match 'admin/:id/demote', :to => 'admin#demote', :as => 'admin_user_demote', :via => :post
+  #get "admin_spam" => "admin#spam"
+  #get "admin_unspam" => "admin#unspam"
+  match 'admin/:id/spam', :to => 'admin#spam', :as => 'admin_spam', :via => :post
+  match 'admin/:id/unspam', :to => 'admin#unspam', :as => 'admin_unspam', :via => :post
+
+  get "posts/top_posts"
+
   get "admin/index"
   get "admin/viewAllUsers"
   get "admin/spamReports"
   get "admin/spamComments"
+  #get "admin/showPostsReporters"
 
-   resources :posts do
-     resources :comments
-   end
+  #match 'posts/search' => 'posts#search', :via => :get, :as => 'search_posts'
+  #match 'spam_posts/:id/mark_spam', :to => 'spam_posts#mark_spam', :as => 'post_mark_spam', :via => :post
+  #match 'spam_posts/:id/unmark_spam', :to => 'spam_posts#unmark_spam', :as => 'post_unmark_spam', :via => :delete
+  match 'admin/:id/showPostsReporters', :to => 'admin#showPostsReporters', :as => 'showPostsReporters', :via => :get
+
+  resources :posts do
+    resources :comments
+    #resources :spam_posts
+    member do
+      get 'mark_spam'
+      get 'like'
+    end
+  end
+
+  resources :comments do
+    member do
+      get 'spam'
+    end
+  end
+
+  resources :users do
+    resources :spam_posts
+  end
+
 
 
   # The priority is based upon order of creation:

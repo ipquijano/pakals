@@ -16,7 +16,6 @@ class AdminController < ApplicationController
 
 	def ban 
 		if(current_user && current_user.usertype == "1")
-
 	    	@user = User.find(params[:id])    	
 	      	if @user.update_attribute(:reputation,1)
 				redirect_to admin_viewAllUsers_path, :notice => "User banned!"
@@ -56,7 +55,6 @@ class AdminController < ApplicationController
 
    	def demote
 		if(current_user && current_user.usertype == "1")
-
 	   		@user = User.find(params[:id])    	
 	      	if @user.update_attribute(:usertype,0)
 				redirect_to admin_viewAllUsers_path, :notice => "User demoted to as regular user!"
@@ -69,7 +67,32 @@ class AdminController < ApplicationController
    	end
 
 	def spamReports
-		
+		@posts = Post.all
+	end
+
+	def showPostsReporters
+		@post = Post.find(params[:id])
+		@flaggings = @post.flaggings
+		#user = flagging.flagger
+		#@spams = SpamPost.where(:post_id => @post.id)					
+	end
+
+	def spam
+		@post = Post.find(params[:id])
+		if @post.update_attribute(:reputation, 1)
+			redirect_to admin_spamReports_path, :notice => "Post marked as spam!"
+		else
+			redirect_to admin_spamReports_path
+		end
+	end
+
+	def unspam
+		@post = Post.find(params[:id])
+		if @post.update_attribute(:reputation, 0)
+			redirect_to admin_spamReports_path, :notice => "Post unmarked as spam!"
+		else
+			redirect_to admin_spamReports_path
+		end
 	end
 
 	def spamComments

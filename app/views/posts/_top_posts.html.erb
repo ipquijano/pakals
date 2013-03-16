@@ -1,0 +1,7 @@
+<ul class="style1">
+	<% @posts.each do |post| %>
+		<% if post.flaggings.with_flag(:like).exists?  %>
+			<li><%= link_to post.title, post%></li>
+		<% end %>
+	<% end %>
+</ul>

@@ -1,0 +1,25 @@
+<%= form_for(@spam_post) do |f| %>
+  <% if @spam_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spam_post.errors.count, "error") %> prohibited this spam_post from being saved:</h2>
+
+      <ul>
+      <% @spam_post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :post %><br />
+    <%= f.text_field :post %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

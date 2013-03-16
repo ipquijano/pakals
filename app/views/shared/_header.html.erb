@@ -22,9 +22,15 @@
 			</div>
 			
 			<div id="search">
-				<form method="get" action="/search" id="search">
-					<input name="q" type="text" placeholder="Search..." />
-				</form>
+				<%= form_tag posts_path, :method => 'get' do %>
+					<p>
+						<%= text_field_tag :search, params[:search] %>
+						
+							<%= submit_tag "Search", :title => nil %>
+				
+						
+					</p>
+				<% end %>
 			</div>
 
 			<div id="menu">
