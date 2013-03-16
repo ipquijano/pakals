@@ -68,6 +68,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (>= 0.0.2)
       mime-types
+    pg (0.14.1-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -126,6 +127,7 @@ DEPENDENCIES
   jquery-rails
   make_flaggable!
   paperclip (= 3.1.4)
+  pg
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)
   sqlite3-ruby
