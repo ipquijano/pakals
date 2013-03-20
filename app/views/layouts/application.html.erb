@@ -5,7 +5,6 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag    "style", :media => "all" %>
   <%= javascript_include_tag "application" %>
-
   <%= csrf_meta_tags %>
 </head>
 
@@ -35,10 +34,10 @@
 				<h2>USER MENU</h2>
 				<ul>
 					<% if current_user %>
-						<strong><%= link_to current_user.name, current_user %></strong>
+						<strong><li><%= current_user.name %></li></strong>
 						<li><%= link_to "Update Profile", edit_user_path(current_user.id) %></li>
-						<li><%= link_to "New Post", new_post_path %></li>
-						<li><%= link_to "My Posts", view_posts_path %></li>
+						<li><%= link_to "Add A New Post", new_post_path %></li>
+						<li><%= link_to "View All Posts", view_posts_path %></li>
 						<br/>
 						<% if current_user.usertype == "1" %>
 							<strong><li>Admin Tools</li></strong>

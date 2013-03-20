@@ -1,0 +1,4 @@
+<% if current_user %>					
+	<%= toggle_like(@post, current_user) %>	 |
+	<%= toggle_spam(@post, current_user) %>					
+<% end %>

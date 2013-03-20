@@ -1,26 +1,10 @@
 class PagesController < ApplicationController
-	def home
-		@posts = Post.all
-	end
-
-	def show
-		@post = Post.find(params[:id])
-		@comment = Comment.new 
-	end
-
 	def popular
-		@posts = Post.order("spam_status ASC").limit(5)
+		@posts = Post.all
 	end
 
 	def latest
-		@posts = Post.order("created_at DESC").limit(5)
+		@posts = Post.order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
 	end
-
-	def towns
-		
-	end
-
-	def top_posts
-		@posts = Post.all
-	end
+	
 end

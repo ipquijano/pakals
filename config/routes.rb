@@ -2,7 +2,7 @@ Pakals::Application.routes.draw do
   resources :spam_posts
 
   get "sessions/new"
-
+  #get "shared/index"
   resources :posts, :has_many => :comments
   resources :users
   resources :sessions
@@ -16,7 +16,7 @@ Pakals::Application.routes.draw do
   get "register" => "users#new", :as=> "register"
   get "log_in" => "sessions#new", :as => "log_in"
   get "log_out" => "sessions#destroy", :as => "log_out"
-  root :to => "pages#home"
+  root :to => "posts#index"
   match 'admin/:id/ban', :to => 'admin#ban', :as => 'admin_user_ban', :via => :post
   match 'admin/:id/unban', :to => 'admin#unban', :as => 'admin_user_unban', :via => :post
   match 'admin/:id/promote', :to => 'admin#promote', :as => 'admin_user_promote', :via => :post

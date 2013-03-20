@@ -1,0 +1,2 @@
+class NotifsController < ApplicationController
+end

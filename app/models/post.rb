@@ -5,17 +5,19 @@ class Post < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_attached_file :foodpic
 
-
   validates :title, :body, :town_from, :presence => true
   validates :title, :length => { :minimum => 5}
   validates :title, :uniqueness => { :message => "already taken"}
 
+
+
   def self.search(search)
     if search
-      find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
+      where('title LIKE ?', "%#{search}%")
     else
-      find(:all)
+      scoped
     end
   end
-  
+
+
 end

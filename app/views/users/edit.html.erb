@@ -19,6 +19,7 @@
 	<div id="content">
 		<div class="post">
 			<h2 class="title"><a href="#">Update Profile</a></h2>
+			&nbsp;
 			<div class="entry">
 				<%= form_for @user, :html => { :multipart => true } do |f| %>
 				<% if @user.errors.any? %>
@@ -32,14 +33,13 @@
 
 
 				<p>
-				<img id="img_prev" src=<%=  @user.avatar.url() %>  border = "3px" border-color = "black" alt="your image" height = "200" width = "200"/>
+				<img id="img_prev" src=<%= @user.avatar %>  border = "3px" border-color = "black" alt="your image" height = "200" width = "200"/>
 				<!--	
 				 <input type = "file" name = "image" required = "true" accept = "image/gif, image/png, image/jpeg" onchange="readURL(this)">-->
 					<br />
 					<%#= image_tag "/system/users/avatars/avatar.jpg",:source=>"/system/users/avatars/avatar.jpg", :class=>"image_prev", :height=>300, :width=>300, :style => "border: 1px solid black", :alt=>"your image" %>
 					<br/>
-					<%= f.file_field :avatar, :onchange=>"readURL(this);", :accept => "image/gif, image/png, image/jpeg" %>
-					
+					<%= f.file_field :avatar, :onchange=>"readURL(this);", :name => "image", :accept => "image/gif, image/png, image/jpeg" %>
 				</p>
 				<p>
 					<%= f.label :name %><br />

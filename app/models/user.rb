@@ -1,12 +1,15 @@
 class User < ActiveRecord::Base
   make_flagger
-  attr_accessible :address, :birthdate, :contact_num, :email, :name, :reputation, :tag, :usertype, :password, :password_confirmation, :avatar
+  attr_accessible :address, :birthdate, :contact_num, :email, :name, :reputation, :tag, :usertype, :password, :password_confirmation
   attr_accessor :password
   before_save :encrypt_password
   has_many :posts
   has_many :comments
-
   has_attached_file :avatar
+  
+  #added
+  #attr_accessible :avatar 
+  #added
 
   validates_confirmation_of :password, :on => :create
   validates_presence_of :password, :on => :create

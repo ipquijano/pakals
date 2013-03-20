@@ -21,7 +21,6 @@ h1, h2, h3 {
 	font-weight: normal;
 	font-family: 'Oswald', sans-serif;
 	font-weight: 200;
-	color: #222222;
 }
 
 h1 {
@@ -45,10 +44,11 @@ ul, ol {
 }
 
 a {
-	color: #5E5E5E;
+	
 }
 
 a:hover {
+
 }
 
 #wrapper {
@@ -101,7 +101,7 @@ a:hover {
 
 #logo p {
 	margin: 0;
-	padding: 0px 0 0 0px;
+	padding: 400px 0 0 0px;
 	letter-spacing: -1px;
 	font: normal 18px Georgia, "Times New Roman", Times, serif;
 	font-style: italic;
@@ -128,43 +128,38 @@ a:hover {
 }
 
 /* Search */
-
-#search {
+#white {
 	float: right;
-	width: 200px;
-	height: 5px;
-	padding: 23px 0px 10px 0px;
+	height: 0px;
+	padding: 15px 20px;
 }
 
-#search form {
-	height: 5px;
-	margin: 0;
-	padding: 10px 0 0 20px;
+#white #search {
 }
 
-#search fieldset {
-	margin: 0;
-	padding: 0;
-	border: none;
-}
+#white #search input {
+    background: url(search-white.png) no-repeat 10px 6px #fcfcfc;
+    border: 1px solid #d1d1d1;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #bebebe;
+    width: 150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
 
-#search-text {
-	width: 170px;
-	padding: 6px 5px 2px 5px;
-	border: 1px solid #E7EBED;
-	background: #FFFFFF;
-	text-transform: lowercase;
-	font: normal 11px Arial, Helvetica, sans-serif;
-	color: #5D781D;
-}
-
-#search-submit {
-	width: 50px;
-	height: 22px;
-	border: none;
-	background: #B9B9B9;
-	color: #000000;
-}
+#white #search input :focus {
+    width: 20px;
+    }
 
 /* Menu */
 
@@ -179,7 +174,7 @@ a:hover {
 #menu ul {
 	float: right;
 	margin: 0;
-	padding: 20px 0px 0px 0px;
+	padding: 15px 0px 0px 0px;
 	list-style: none;
 	line-height: normal;
 }
@@ -204,8 +199,8 @@ a:hover {
 }
 
 #menu a:hover, #menu .current_page_item a {
-	text-decoration: none;
 	color: #FFFFFF;
+	border-radius: 5px;
 }
 
 #menu .current_page_item a {
@@ -264,6 +259,8 @@ a:hover {
 }
 
 .post .meta a {
+	text-decoration: underline;
+	color: #12212F;
 }
 
 .post .entry {
@@ -283,11 +280,9 @@ a:hover {
 	height: auto;
 	padding: 5px 5px;
 	margin-right: 10px;
-	background: #132434;
 	border-radius: 5px;
-	color: #FFFFFF;
 	text-align: left;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 .more {
@@ -307,7 +302,7 @@ a:hover {
 	display: block;
 	float: left;
 	width: 88px;
-	padding: 5px 5px;
+	padding: 2px 0px;
 	background: #132434;
 	border-radius: 5px;
 	color: #FFFFFF;
@@ -365,7 +360,6 @@ a:hover {
 	padding: 0px 0px 30px 0px;
 	letter-spacing: -.5px;
 	font-size: 1.8em;
-	color: #222222;
 }
 
 #sidebar p {
@@ -375,11 +369,13 @@ a:hover {
 }
 
 #sidebar a {
+	text-decoration: none;
 	border: none;
 }
 
 #sidebar a:hover {
 	text-decoration: underline;
+	color: #12212F;
 }
 
 /* Calendar */
@@ -411,7 +407,7 @@ a:hover {
 
 #footer-content {
 	overflow: hidden;
-	width: 1000px;
+	width: 100px;
 	margin: 0px auto;
 	padding: 50px 0px;
 	color: #FFFFFF;
@@ -475,9 +471,12 @@ a:hover {
 /* Footer */
 
 #footer {
-	height: 140px;
+	
+	bottom: 0px;
+	width: 100%;
+	height: 70px;
 	margin: 0 auto;
-	padding: 50px 0 15px 0;
+	padding: 10px 10px 15px 10px;
 	font-family: 'Abel', sans-serif;
 	background: #D6D6D6 url(../images/img01.jpg) repeat;
 }

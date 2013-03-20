@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+	<h3><%= link_to post.title, post%></h3>	
+	<p><%=h truncate(post.body, :length => 80) %></p>		
+	<hr />
+<% end %>
+<%= ajax_will_paginate @posts, :params => { :my_excluded_param => nil } %>

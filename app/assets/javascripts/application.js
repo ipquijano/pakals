@@ -12,4 +12,28 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_tree 
+
+$(function() {
+// 	//Pagination for posts
+//   $("#posts_ajax th a, #posts_ajax .pagination a").live("click", function() {
+//     $.getScript(this.href);
+//     return false;
+//   });
+  //Toggle for Like & Spam
+  // $("#like_spam_toggle a").live("click", function() {
+  //   $.getScript(this.href);
+  //   return false;
+  // });
+  //Search
+  $("#posts_search input").keyup(function() {
+    $.get($("#posts_search").attr("action"), $("#posts_search").serialize(), null, "script");
+    return false;
+  });
+	// $("#posts_search").submit(function() {
+	// 	$.get(this.action, $(this).serialize(), null, "script");
+	// 	return false;
+	// });
+});
+
+

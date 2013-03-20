@@ -8,7 +8,7 @@ class AdminController < ApplicationController
 
 	def viewAllUsers
 		if(current_user && current_user.usertype == "1")
-			@users = User.where("id != ?", current_user.id)
+			@users = User.where("id != ?", current_user.id).paginate(:per_page => 5, :page => params[:page])
 		else
 			redirect_to log_in_path
 		end
@@ -67,7 +67,7 @@ class AdminController < ApplicationController
    	end
 
 	def spamReports
-		@posts = Post.all
+		@posts = Post.paginate(:per_page => 5, :page => params[:page])
 	end
 
 	def showPostsReporters

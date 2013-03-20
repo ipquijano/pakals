@@ -3,18 +3,10 @@
 		<div class="post">
 			<h2 class="title"><%= link_to "Delicacies", posts_path %></h2>
 			<div class="entry">
-				<br/><br/>
-				<% @posts.each do |post| %>
-				<h3><%= link_to post.title, post%></h3>
-				
-				<p><%=h truncate(post.body, :length => 80) %></p>		
-				
-				<hr />
-
-			<% end %>
+			<br/><br/>			
+			<div id="index_posts"><%= render "posts" %></div>
 			</div>
 		</div>
 	</div>
-	<!-- end #content -->
-	
+	<!-- end #content -->	
 </div>

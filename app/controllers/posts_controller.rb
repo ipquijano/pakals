@@ -1,18 +1,12 @@
 class PostsController < ApplicationController
-	#helper_method :sort_column, :sort_direction
-
+	
 	def index
-		#@posts = Post.all		
-		@posts = Post.search(params[:search])
-		#@post_all = Post.all
-		#@posts = Post.where("title like ?", params[:search])
-		#@posts = Post.find_all_by_title(params[:search])
+		@posts = Post.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
 	end
 
 	def show
 		@post = Post.find(params[:id])
 		@comment = Comment.new 
-		
 	end
 
 	def new 
@@ -69,7 +63,7 @@ class PostsController < ApplicationController
 
 	def view_posts
 		if current_user
-			@posts = Post.find_all_by_user_id(current_user.id)
+			@posts = Post.where(:user_id => current_user.id).paginate(:per_page => 3, :page => params[:page])
 		else
 			redirect_to log_in_path
 		end
@@ -100,16 +94,5 @@ class PostsController < ApplicationController
 			redirect_to @post, :notice => "You liked the post!" 
 		end		
 	end
-
-	
-	
-	# private
-	# def sort_column
-	# 	Post.column_names.include?(params[:sort]) ? params[:sort] : "starting_date"
-	# end
-
-	# def sort_direction
-	# 	%w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-	# end
-	
+		
 end
