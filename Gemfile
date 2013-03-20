@@ -5,6 +5,7 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'pg'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 gem "cocaine", "= 0.3.2" 
